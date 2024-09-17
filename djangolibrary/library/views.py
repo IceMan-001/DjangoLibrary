@@ -1,9 +1,23 @@
 from django.http import HttpResponse, HttpResponseNotFound, Http404
 from django.shortcuts import render, redirect
 
+from .models import *
+
 
 def index(request):
-    return HttpResponse('Страница приложения библиотека')
+    posts = Book.objects.all()
+    context = {
+        'title': 'Главная страница сайта',
+        'posts': posts
+    }
+    return render(request, template_name='library/index.html', context=context)
+
+
+def about(request):
+    context = {
+        'title': 'О сайте'
+    }
+    return render(request, template_name='library/about.html', context=context)
 
 
 def categories(request, cat_id):

@@ -1,0 +1,14 @@
+{% extends 'library/base.html' %}
+
+{% block content %}
+<h2>Главная страница</h2>
+<ul>
+    {% for post in posts %}
+    <li>
+        <h2>{{post.title}}</h2>
+        <h2>{{post.content}}</h2>
+    <hr>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock content %}
