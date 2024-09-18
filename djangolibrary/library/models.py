@@ -22,5 +22,4 @@ class Author(models.Model):
     last_name = models.CharField(max_length=255, verbose_name='Фамилия')
     date_of_birth = models.DateField(verbose_name='Дата рождения')
 
-    def __str__(self):
-        return self.first_name
+
