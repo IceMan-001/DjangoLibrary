@@ -6,10 +6,13 @@ from .models import *
 
 
 def index(request):
-    posts = Book.objects.all()
+    books = Book.objects.all()
+    authors = Author.objects.all()
+    print(books, authors)
     context = {
         'title': 'Главная страница сайта',
-        'posts': posts
+        'books': books,
+        'authors': authors
     }
     return render(request, template_name='library/index.html', context=context)
 

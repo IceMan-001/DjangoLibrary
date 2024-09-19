@@ -3,12 +3,28 @@
 {% block content %}
 <h2>Главная страница</h2>
 <ul>
-    {% for post in posts %}
+    {% for author in authors %}
     <li>
-        <h2>{{post.title}}</h2>
-        <h2>{{post.content}}</h2>
-    <hr>
+        <h2>Писатель: {{author.first_name}} {{author.patronymic}} {{author.patronymic}}</h2>
     </li>
+    <li>
+        <h2>Год рождения: {{author.date_of_birth}}</h2>
+    </li>
+    <h2><i>Произведения</i></h2>
+    {% if id == author_name_id %}
+    {% for book in books %}
+    <li>
+        <h3>{{book.name}}</h3>
+    </li>
+    <li>
+        <h3>{{book.genre}}</h3>
+    </li>
+    <li>
+        <h3>{{book.year_of_creation}}</h3>
+        <hr>
+    </li>
+    {% endfor %}
+    {% endif %}
     {% endfor %}
 </ul>
 {% endblock content %}
