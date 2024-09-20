@@ -10,16 +10,19 @@
 <body>
 <ul class="nav">
     <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Главная страница</a>
+        <a class="nav-link active" aria-current="page" href="{% url 'home' %}"><h4>Главная страница</h4></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="{% url 'add_page' %}">Создать новую запись</a>
+        <a class="nav-link" href="{% url 'add_page_book' %}"><h4>Добавить новую книгу</h4></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="{% url 'about' %}">О сайте</a>
+        <a class="nav-link" href="{% url 'add_page_author' %}"><h4>Добавить нового автора</h4></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="{% url 'contact' %}">Контакты</a>
+        <a class="nav-link" href="{% url 'about' %}"><h4>О сайте</h4></a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'contact' %}"><h4>Контакты</h4></a>
     </li>
 </ul>
 {% block content %}

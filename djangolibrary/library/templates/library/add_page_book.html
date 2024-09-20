@@ -1,0 +1,15 @@
+{% extends 'library/base.html' %}
+
+{% block content %}
+<h2>{{title}}</h2>
+<form action="{% url 'add_page_book' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <ul>
+        <ul>
+        {{ form.as_p }}
+        </ul>
+        <button type="button" class="btn btn-primary">Добавить</button>
+    </ul>
+</form>
+
+{% endblock content %}
