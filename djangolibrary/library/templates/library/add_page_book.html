@@ -1,15 +1,40 @@
 {% extends 'library/base.html' %}
+{% load crispy_forms_tags %}
 
 {% block content %}
-<h2>{{title}}</h2>
-<form action="{% url 'add_page_book' %}" method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    <ul>
-        <ul>
-        {{ form.as_p }}
-        </ul>
-        <button type="button" class="btn btn-primary">Добавить</button>
-    </ul>
-</form>
+{#<h2>{{title}}</h2>#}
+{#<form action="{% url 'add_page_book' %}" method="post" enctype="multipart/form-data">#}
+{#    {% csrf_token %}#}
+{#    {{ form|crispy }}#}
+
+    <div class="container p-5">
+      <h1>Произведения</h1>
+      <h4>Вы можете добавить произведение, введенного ранее, автора</h4>
+      <p>
+        Please write your name, email address and a message below if you have any questions.
+        One of our staff members will be happy to contact you directly and answer your questions as soon as possible.
+      </p>
+      <form action="" method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="row">
+            <div class="col-lg-6 col-md-12">
+               {{form.author_name|as_crispy_field}}
+            </div>
+            <div class="col-lg-6 col-md-12">
+              {{form.author|as_crispy_field}}
+            </div>
+          </div>
+          <div class="row">
+              {{form.name|as_crispy_field}}
+          </div>
+          <div class="row">
+              {{form.genre|as_crispy_field}}
+          </div>
+          <div class="row">
+              {{form.year_of_creation|as_crispy_field}}
+          </div>
+               <button type="submit " class="btn btn-primary">Добавить</button>
+          </form>
+      </div>
 
 {% endblock content %}

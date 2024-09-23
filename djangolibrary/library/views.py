@@ -53,9 +53,14 @@ def add_page_author(request):
         form = AddPostForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('home')
+            return redirect('selection_page')
 
     else:
         form = AddPostForm()
+        authors = Author.objects.all()
     return render(request, template_name='library/add_page_author.html',
-                  context={'form': form, 'title': 'Добавление нового автора'})
+                  context={'form': form, 'title': 'Добавление нового автора', 'authors': authors})
+
+
+def selection_page(request):
+    return render(request, template_name='library/selection_page.html', context={'title': 'Страница выбора'})
